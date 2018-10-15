@@ -19,6 +19,13 @@ class ChatWebApp extends React.PureComponent {
     this.onMessageDeleted = this.onMessageDeleted.bind(this);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.todos.length > prevProps.todos.length) {
+      // make sure to scroll to the last entered todo
+      this._scroll.scrollTop = this._scroll.scrollHeight;
+    }
+  }
+
   onMessageEntered(todoText) {
     this.props.dispatch(insertTodo(todoText, (new Date()).getTime()));
   }
@@ -43,7 +50,7 @@ class ChatWebApp extends React.PureComponent {
     return (
       <ChatApp>
         <ChatHeader><h1>My todo list</h1></ChatHeader>
-        <ChatMessages>
+        <ChatMessages innerRef={(c) => { this._scroll = c; }} >
           {this.props.todos.map((todo) => this.props.todoBeingEdited === todo.id
             ? <MessageEdit key={todo.id} todo={todo} onSave={this.onMessageSave} onCancel={this.onCancelEdit} />
             : <MessageBubble key={todo.id} todo={todo} onEdit={this.onMessageEdit} onDelete={this.onMessageDeleted} />)

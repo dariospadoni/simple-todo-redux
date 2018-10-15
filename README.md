@@ -13,21 +13,21 @@ This app makes use of the following packages:
 
 ## Run the App
 
-```sh
-$ git clone git@github.com:wbkd/react-starter.git && cd react-starter
-$ npm install
-$ npm start
+```
+git clone https://github.com/dariospadoni/simple-todo-redux && cd simple-todo-redux
+npm install
+npm start
 ```
 App will run on [localhost:8080](http://localhost:8080/)
 
 ## Linting
-```sh
-$ npm run lint
+```
+npm run lint
 ```
 
 ## Testing
 
-```sh
-$ npm run test
+```
+npm run test
 ```
 Will first run the linting, then the tests
