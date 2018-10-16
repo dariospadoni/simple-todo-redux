@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import MessageEdit from '../index';
-import { ChatForm, ChatBubble } from '../../DesignKit/index';
+import { ChatEditForm, ChatBubble } from '../../DesignKit/index';
 
 describe('MessageEdit component', () => {
   const todo = { id: 'todo-1', timeStamp: 123, text: 'test' };
@@ -10,7 +10,7 @@ describe('MessageEdit component', () => {
     const mockFn = jest.fn();
     const component = mount(<MessageEdit todo={todo} onSave={mockFn} onCancel={mockFn} />);
     expect(component.find(ChatBubble).exists()).toBe(true);
-    expect(component.find(ChatForm).exists()).toBe(true);
+    expect(component.find(ChatEditForm).exists()).toBe(true);
   });
 
   it('should cancel the editing on esc', () => {
@@ -26,7 +26,7 @@ describe('MessageEdit component', () => {
     const mockSave = jest.fn();
     const mockCancel = jest.fn();
     const component = mount(<MessageEdit todo={todo} onSave={mockSave} onCancel={mockCancel} />);
-    component.find(ChatForm).simulate('submit');
+    component.find(ChatEditForm).simulate('submit');
     expect(mockCancel).not.toHaveBeenCalled();
     expect(mockSave).toHaveBeenCalled();
   });

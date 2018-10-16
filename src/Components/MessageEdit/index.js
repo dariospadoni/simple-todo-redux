@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ChatBubble, ChatForm } from '../DesignKit';
+import { ChatBubble, ChatEditForm } from '../DesignKit';
 
 class MessageEdit extends React.PureComponent {
   constructor(props) {
@@ -12,12 +12,12 @@ class MessageEdit extends React.PureComponent {
   }
 
   componentDidMount() {
-    this._input.focus();
+    this._input.focus();  // auto-focus on mount
   }
 
   onKeyDown(e) {
     if (e.key === 'Escape') {
-      this.props.onCancel();
+      this.props.onCancel();  // on ESC quit editing
     }
   }
 
@@ -36,9 +36,9 @@ class MessageEdit extends React.PureComponent {
   render() {
     return (
       <ChatBubble>
-        <ChatForm onSubmit={this.onSubmit}>
+        <ChatEditForm onSubmit={this.onSubmit}>
           <input ref={(c) => { this._input = c; }} onKeyDown={this.onKeyDown} onChange={this.onChange} value={this.state.value} type="text" />
-        </ChatForm>
+        </ChatEditForm>
       </ChatBubble>
     );
   }

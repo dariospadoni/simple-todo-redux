@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ChatInput } from '../DesignKit';
+import { ChatInputForm } from '../DesignKit';
 
 class MessageInput extends React.PureComponent {
   constructor(props) {
@@ -22,9 +22,9 @@ class MessageInput extends React.PureComponent {
 
   render() {
     return (
-      <ChatInput onSubmit={this.onSubmit}>
-        <input onChange={this.onChange} value={this.state.value} type="text" placeholder="Insert a todo..." />
-      </ChatInput>
+      <ChatInputForm onSubmit={this.onSubmit}>
+        <input onChange={this.onChange} value={this.state.value} type="text" placeholder="Insert a to-do..." />
+      </ChatInputForm>
     );
   }
 }

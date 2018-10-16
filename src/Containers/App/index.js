@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Header from '../../Components/Header';
 import MessageInput from '../../Components/MessageInput';
 import MessageBubble from '../../Components/MessageBubble';
 import MessageEdit from '../../Components/MessageEdit';
-import { ChatApp, ChatHeader, ChatMessages } from '../../Components/DesignKit';
+import { ChatApp, ChatMessages } from '../../Components/DesignKit';
 import {
   insertTodo, saveTodo, removeTodo, editTodo, cancelEdit,
 } from './actions';
@@ -49,7 +50,7 @@ class ChatWebApp extends React.PureComponent {
   render() {
     return (
       <ChatApp>
-        <ChatHeader><h1>My todo list</h1></ChatHeader>
+        <Header numTodos={this.props.todos.length} />
         <ChatMessages innerRef={(c) => { this._scroll = c; }} >
           {this.props.todos.map((todo) => this.props.todoBeingEdited === todo.id
             ? <MessageEdit key={todo.id} todo={todo} onSave={this.onMessageSave} onCancel={this.onCancelEdit} />

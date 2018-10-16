@@ -5,27 +5,34 @@ const BORDER_COLOR = '#ddd';
 const BUBBLE_BG = '#00B0FF';
 
 const ChatApp = styled.div`
-  background: white;
   border-radius: 5px;
   border: 2px solid ${BORDER_COLOR};
   color: #1A1A1A;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 98vh;
-  margin: 5px;
+  height: 97vh;
+  margin: 10px;
   min-width: 320px;
+  font-family: "Times New Roman", Times, serif;
 `;
 ChatApp.displayName = 'ChatApp';
 
 const ChatHeader = styled.div`
   background-color: ${HEADER_BG};
   border-bottom: 2px solid ${BORDER_COLOR};
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
   
   h1 {
     font-size: 20px;
     margin: 0;
-    padding: 10px;
+    flex: 1;
+  }
+  
+  .counter {
+    margin-left: auto;
   }
 `;
 ChatHeader.displayName = 'ChatHeader';
@@ -63,7 +70,7 @@ const ChatBubble = styled.div`
 `;
 ChatBubble.displayName = 'ChatBubble';
 
-const ChatForm = styled.form`
+const ChatEditForm = styled.form`
   padding: 10px;
   width: 100% ;
   
@@ -106,7 +113,7 @@ const ChatAction = styled.a`
   }
 `;
 
-const ChatInput = styled.form`
+const ChatInputForm = styled.form`
   border-top: 2px solid ${BORDER_COLOR};
   padding: 10px 5px;
   
@@ -121,5 +128,5 @@ const ChatInput = styled.form`
 `;
 
 export {
-  ChatInput, ChatText, ChatMessage, ChatTimeStamp, ChatAction, ChatForm, ChatBubble, ChatApp, ChatHeader, ChatMessages,
+  ChatInputForm, ChatText, ChatMessage, ChatTimeStamp, ChatAction, ChatEditForm, ChatBubble, ChatApp, ChatHeader, ChatMessages,
 };
