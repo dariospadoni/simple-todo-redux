@@ -27,8 +27,7 @@ const ChatHeader = styled.div`
   
   h1 {
     font-size: 20px;
-    margin: 0;
-    flex: 1;
+    margin: 0;    
   }
   
   .counter {

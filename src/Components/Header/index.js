@@ -4,7 +4,7 @@ import { ChatHeader } from '../DesignKit';
 
 const Header = ({ numTodos }) => (<ChatHeader>
   <h1>My to-do list</h1>
-  <div className="counter">You have <strong>{numTodos}</strong> To-dos</div>
+  <div className="counter">You have <strong>{numTodos}</strong> to-dos</div>
 </ChatHeader>);
 
 Header.propTypes = {

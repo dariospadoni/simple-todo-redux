@@ -22,7 +22,7 @@ class ChatWebApp extends React.PureComponent {
 
   componentDidUpdate(prevProps) {
     if (this.props.todos.length > prevProps.todos.length) {
-      // make sure to scroll to the last entered todo
+      // make sure to scroll to the last entered to-do
       this._scroll.scrollTop = this._scroll.scrollHeight;
     }
   }
